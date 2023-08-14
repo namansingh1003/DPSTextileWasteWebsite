@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <script src="./color-modes.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <link href="./bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+    </style>
+
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <!-- External symbols from an outside source.  -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <!-- Mode change Dropdown -->
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Navbar -->
+    <header data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Carousel</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Types.html">Types</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/impact.html">Impact</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/stats.html">Stats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/solutions.html">Solutions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main part of the page -->
+    <main>
+
+        <!-- Page intro -->
+        <div class="bg-dark text-secondary px-4 py-5 text-center">
+            <div class="py-5">
+              <h1 class="display-5 fw-bold text-white">Solutions for the problems caused by textile wastes</h1>
+              <div class="col-lg-6 mx-auto">
+                <p class="fs-5 mb-4">The statistics and data above show us the scale of the problem, but what can we do about it?
+                    The main thing to remember is that as individuals and consumers, we drive the fashion industry. They produce what we buy, so by changing our habits we can force the textile industry to reduce fashion waste and produce more sustainable fashion.
+                    </p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                  <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Home</button>
+                  <button type="button" class="btn btn-outline-light btn-lg px-4">Stats</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="container marketing">
+
+        <hr class="featurette-divider">
+
+        <!-- Overconsumption of Natural Resources -->
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1"> <span class="text-body-secondary">Buy, Sell, and Donate Secondhand Clothing</span></h2>
+            <p class="lead">Do not throw unwanted clothes straight in the trash. Instead, consider selling, swapping, or donating them. Equally, consider whether you really need to buy new clothes. Could you shop for secondhand clothes, or consider clothing swap or rental schemes?
+                Check local listings for a swap or exchange event in your area, or consider organizing one yourself.
+                .</p>
+          </div>
+          <div class="col-md-5">
+            <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+            <br><br><br><br><br>
+            <img src = "https://i.guim.co.uk/img/media/d4ee6af4fd45369981e29866ab196a76669cadcb/0_146_4368_2621/master/4368.jpg?width=700&quality=85&auto=format&fit=max&s=4cfc0a94c80f700687ec6a4b1d6c4c73" width="500"/>
+            <br><br>
+            <img src = "https://www.zoiinternational.com/wp-content/uploads/2021/08/second-hand-clothes.jpg" width="500"/>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Water Pollution -->
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Buy Recycled or Upcycled Clothing
+                <span class="text-body-secondary"> </span></h2>
+            <p class="lead"><h3>Many brands are now making new clothing from post-consumer textile waste, or other waste items such as discarded plastic bottles or nylon fishing nets.
+                Check out the recycled clothing brands that are leading the way in textile recycling. Or, look for upcycled clothing brands that are making stylish and durable garments from offcut fabric scraps and plastic waste.
+                </p></h3>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <br><br><br><br><br>
+            <img src = data:image/jpeg;base64,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 width="450"/>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Greenhouse Gas Emissions -->
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Buy Organic Clothing <span class="text-body-secondary"></span></h2>
+            <p class="lead">Organic farming uses less water and energy than conventional farming, and does not require synthetic pesticides or fertilizers which can further pollute the water system.
+                What's more, organic fibers don't contain any plastic which means that when they can no longer be used, they will biodegrade.
+                The organic fashion industry is growing in popularity, and you can support it by buying from the best organic fashion brands which are truly making a difference.
+                </p>
+          </div>
+          <div class="col-md-5">
+            <br><br><br><br><br>
+            <img src = "https://www.fairtradewinds.net//wp-content/uploads/2020/07/organic-cotton-t-shirt-facts-1-e1595363999880.jpg" width="450"/>
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Landfills and Low Recycling Rates -->
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+              <h2 class="featurette-heading fw-normal lh-1">Sustainable Production Methods
+                <span class="text-body-secondary"></span></h2>
+              <p class="lead">Innovative production and manufacturing methods can be used to reduce waste and pollution at every stage of the textile production process.
+                Sustainable fashion brands such as Colorful Standard and Coalatree Organics are now using waterless dyeing methods which save both water and energy.
+                Brands like Tentree are using carbon-neutral factories, powered by renewable energy.
+                </p>
+            </div>
+            <div class="col-md-5 order-md-1">
+            <br><br><br><br><br>
+            <img src = https://www.sutlejtextiles.com/blogs/images/blogs/Manufacturing-need-950-650.jpg width="450"/>
+            <br><br><br><br><br>
+            <img src = "https://www.ecotextile.com/images/stories/2019/March/BluWin_Process.png" width="450"/>
+            </div>
+          </div>
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+    </main>
+
+    <script src="./bootstrap.bundle.min.js"></script>
+
+  </body>
+</html>
